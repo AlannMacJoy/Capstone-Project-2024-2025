@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Create a .gitignore file
+cat <<EOL > .gitignore
+# Ignore video files
+*.mp4
+*.avi
+*.mov
+
+# Ignore image files
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# Ignore specific folders
+Assets/large_files/
+Assets/temp/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+*.log
+
+# Ignore node modules
+node_modules/
+
+# Ignore build artifacts
+dist/
+build/
+
+# Ignore IDE/editor settings
+.vscode/
+.idea/
+*.iml
+
+# Ignore specific file
+Customer-on-mobile-phone.mp4
+EOL
+
+# Remove tracked files that should be ignored
+git rm -r --cached .
+
+# Add files to git
+git add .
+
+# Commit changes
+git commit -m "Add .gitignore and remove unnecessary files"
+
+echo "Setup complete. You can now push your changes."
